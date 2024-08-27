@@ -1,6 +1,7 @@
 import { type TDocumentDefinitions } from 'pdfmake/interfaces.js';
 import type RetencionesData from '#src/retenciones_data';
 import AbstractGenericTraslator from '#src/templates/abstract_generic_translator';
+import usePlataformasTecnologicas10Complement from '#src/templates/complements/plataformas_tecnologicas10_complement';
 import genericEmisorContent from '#src/templates/sections/generic_emisor_content';
 import genericFooter from '#src/templates/sections/generic_footer';
 import genericReceptorContent from '#src/templates/sections/generic_receptor_content';
@@ -54,7 +55,32 @@ export default class GenericRetencionesTranslator
       this.genericSpace(2),
     );
 
-    // TODO: Complements
+    const plataformasTecnologicas = data
+      .retenciones()
+      .searchNode(
+        'retenciones:Complemento',
+        'plataformasTecnologicas:ServiciosPlataformasTecnologicas',
+      );
+    if (plataformasTecnologicas) {
+      const plataformasTable = usePlataformasTecnologicas10Complement(
+        plataformasTecnologicas,
+        primaryColor,
+        bgGrayColor,
+      );
+
+      if (plataformasTable) {
+        retencionesContent.push(
+          {
+            table: {
+              widths: ['10%', '10%', '10%', '10%', '10%', '10%', '10%', '10%', '10%', '10%'],
+              body: plataformasTable,
+            },
+            layout: 'tableLayout',
+          },
+          this.genericSpace(2),
+        );
+      }
+    }
 
     // AdditionalFields
     const additionalFields = data.additionalFields();

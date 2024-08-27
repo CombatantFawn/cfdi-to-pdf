@@ -1,6 +1,6 @@
 {
   "name": "@nodecfdi/cfdi-to-pdf",
-  "version": "2.1.0-3",
+  "version": "2.1.0",
   "description": "Librería para crear un pdf basado en un XML CFDI o Retenciones",
   "type": "module",
   "main": "./dist/commonjs/index.js",
@@ -80,7 +80,7 @@
     "@jsprismarine/typedoc-material-theme": "^1.0.4",
     "@nodecfdi/cfdi-core": "^0.5.0",
     "@nodecfdi/cfdi-expresiones": "^3.0.2",
-    "@nodecfdi/eslint-config": "^1.10.1",
+    "@nodecfdi/eslint-config": "^1.10.4",
     "@nodecfdi/prettier-config": "^1.1.1",
     "@nodecfdi/tsconfig": "^1.6.0",
     "@types/node": "^20.16.1",
@@ -93,7 +93,7 @@
     "husky": "^9.1.5",
     "is-in-ci": "^1.0.0",
     "np": "^10.0.7",
-    "pdfmake": "^0.2.10",
+    "pdfmake": "^0.2.12",
     "prettier": "^3.3.3",
     "tshy": "^3.0.2",
     "typedoc": "^0.26.6",
@@ -141,7 +141,7 @@
     ]
   },
   "prettier": "@nodecfdi/prettier-config",
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@9.9.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
